@@ -1,0 +1,45 @@
+@import "project-mixins"
+@import "project-variables"
+
++font-face('Open Sans', '../fnt/Open_Sans/OpenSans')
++font-face('Open Sans', '../fnt/Open_Sans/OpenSans-Extrabold', 800)
++font-face('Open Sans', '../fnt/Open_Sans/OpenSans-Italic', 400, italic)
+
+body
+    font:
+        family: 'Open Sans', sans-serif
+        weight: 400
+        style: normal
+        size: 18px
+    line-height: 1.5
+
+h1
+    font:
+        family: 'Open Sans', sans-serif
+        weight: 800
+        style: normal
+        size: 36px
+
+.timer
+    padding: 50px
+    text-align: center
+    background: lighten($color-main, 25%)
+    border-radius: 20px
+    .number
+        font:
+            weight: 800
+            size: 24px
+        background: $color-main
+        color: #fff
+        border-radius: 50%
+        padding: 20px
+    .description
+        font:
+            weight: 800
+            size: 20px
+        &::after
+            content: ', '
+    .seconds
+        .description
+            &::after
+                content: '. '

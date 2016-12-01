@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+	<meta charset="utf-8">
+
+	<base href="">
+
+	<title>Styled Timer - плагин для вашего веб-сайта</title>
+	<meta name="description" content="С помощью Styled Timer можно создавать таймер обратного отсчета исходя из нужной вам даты в календаре и времени.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta name="theme-color" content="#fff">
+	<meta name="msapplication-navbutton-color" content="#fff">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+
+	<link rel="shortcut icon" href="fico/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="fico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="fico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="fico/apple-touch-icon-114x114.png">
+
+	<!-- First loaded CSS -->
+    <!-- $styleTagOpen = <style> -->
+    <!-- $styleTagClose = </style> -->
+    <!-- $styleTagOpen -->
+    <!-- @include "../css/head.min.css" -->
+    <!-- $styleTagClose -->
+
+	<!-- Load CSS, CSS Localstorage & WebFonts Main Function -->
+    <!-- @include "load_css_js.kit" -->
+
+	<!-- Load CSS Start -->
+	<script>loadCSS( "css/project.min.css?ver=1.0.0", false, "all" );</script>
+	<!-- Load CSS End -->
+
+	<!-- Load CSS Compiled without JS -->
+	<noscript>
+		<link rel="stylesheet" href="css/project.min.css">
+	</noscript>
+
+</head>
+<body>
+
+	<h1>Styled Timer - плагин для вашего веб-сайта</h1>
+	<p>С помощью Styled Timer можно создавать таймер обратного отсчета исходя из нужной вам даты в календаре и времени.</p>
+	<p>Как это выглядит:</p>
+
+	<p class="timer timer-example">
+		<span class="days">
+			<span class="number">0</span> <span class="description">дней</span>
+		</span>
+		<span class="hours">
+			<span class="number">0</span> <span class="description">часов</span>
+		</span>
+		<span class="minutes">
+			<span class="number">0</span> <span class="description">минут</span>
+		</span>
+		<span class="seconds">
+			<span class="number">0</span> <span class="description">секунд</span>
+		</span>
+	</p>
+
+	<p>Подключить легко:</p>
+
+	<!-- Load Scripts Start -->
+	<script>
+		var scr = {"scripts":[
+			{"src" : "js/project.min.js", "async" : false}
+		]};
+	</script>
+    <!-- @include "load_js_js.kit" -->
+	<!-- Load Scripts End -->
+
+</body>
+</html>

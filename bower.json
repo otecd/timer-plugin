@@ -1,0 +1,44 @@
+{
+  "name": "timer-plugin",
+  "authors": [
+    "Dmitriy Prone <idimzz@gmail.com>"
+  ],
+  "description": "",
+  "main": [
+    "index.html"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "keywords": [
+    "timer"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/foo/bar.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": false,
+  "dependencies": {
+    "es5-shim": "^4.5.9",
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2"
+  },
+  "devDependencies": {
+    "es5-shim": "^4.5.9",
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2"
+  }
+}
