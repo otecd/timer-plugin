@@ -60,108 +60,6 @@
 		"oF": 0,
 		"oS": 0
 		},
-	"\/fnt\/Open_Sans\/OpenSans-Extrabold.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Extrabold.eot",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Extrabold.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Extrabold.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Extrabold.ttf": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Extrabold.ttf",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Extrabold.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Extrabold.woff",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Extrabold.woff2": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Extrabold.woff2",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Italic.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Italic.eot",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Italic.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Italic.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Italic.ttf": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Italic.ttf",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Italic.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Italic.woff",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans-Italic.woff2": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans-Italic.woff2",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans.eot": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans.eot",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans.ttf": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans.ttf",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans.woff": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans.woff",
-		"oF": 0
-		},
-	"\/fnt\/Open_Sans\/OpenSans.woff2": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/fnt\/Open_Sans\/OpenSans.woff2",
-		"oF": 0
-		},
 	"\/index.html": {
 		"ft": 8192,
 		"oA": 2,
@@ -302,7 +200,7 @@
 	"displayValue": "timer-plugin",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_teal",
-	"lastBuiltDate": 502250604
+	"lastBuiltDate": 502252101
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
