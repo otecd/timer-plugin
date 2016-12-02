@@ -32,6 +32,12 @@
 		"oAP": "\/.gitignore",
 		"oF": 0
 		},
+	"\/bld": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/bld\/bld",
+		"oF": 0
+		},
 	"\/bower.json": {
 		"ft": 524288,
 		"oA": 1,
