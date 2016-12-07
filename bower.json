@@ -1,5 +1,5 @@
 {
-  "name": "timer-plugin",
+  "name": "TimerS-plugin",
   "authors": [
     "Dmitriy Prone <idimzz@gmail.com>"
   ],
@@ -34,11 +34,8 @@
   "dependencies": {
     "es5-shim": "^4.5.9",
     "html5shiv": "^3.7.3",
-    "respond": "^1.4.2"
-  },
-  "devDependencies": {
-    "es5-shim": "^4.5.9",
-    "html5shiv": "^3.7.3",
-    "respond": "^1.4.2"
+    "respond": "^1.4.2",
+    "core.js": "^2.4.1",
+    "pie-htc": "^1.0.0"
   }
 }

@@ -50,26 +50,40 @@
 	<p>С помощью Styled Timer можно создавать таймер обратного отсчета исходя из нужной вам даты в календаре и времени.</p>
 	<p>Как это выглядит:</p>
 
-	<p class="timer timer-example">
-		<span class="days">
-			<span class="number">0</span> <span class="description">дней</span>
-		</span>
-		<span class="hours">
-			<span class="number">0</span> <span class="description">часов</span>
-		</span>
-		<span class="minutes">
-			<span class="number">0</span> <span class="description">минут</span>
-		</span>
-		<span class="seconds">
-			<span class="number">0</span> <span class="description">секунд</span>
-		</span>
+	<p class="timers timers-default">
+		<span class="  timers-counter  timers-counter-days">0</span>
+		<span class="     timers-counter  timers-counter-hours">0</span>
+		<span class="timers-counter  timers-counter-minutes ">0</span>
+		<span class=" timers-counter  timers-counter-seconds">0</span>
+	</p>
+
+	<p class="timers timers-short">
+		<span class="timers-counter  timers-counter-minutes ">0</span>
+		<span class=" timers-counter  timers-counter-seconds">0</span>
+		<span class=" timers-counter  timers-counter-milliseconds">0</span>
+	</p>
+
+	<p class="timers timers-sec">
+		<span class=" timers-counter  timers-counter-seconds">0</span>
 	</p>
 
 	<p>Подключить легко:</p>
 
 	<!-- Load Scripts Start -->
+
+	<!--[if lt IE 9]>
+	<script src="libs/es5-shim/es5-shim.min.js"></script>
+	<script src="libs/es5-shim/es5-sham.min.js"></script>
+	<script src="libs/html5shiv/dist/html5shiv.min.js"></script>
+	<script src="libs/html5shiv/dist/html5shiv-printshiv.min.js"></script>
+	<script src="libs/respond/dest/respond.min.js"></script>
+	<script src="libs/pie-htc/PIE.js"></script>
+	<script src="js/fixes.min.js"></script>
+	<![endif]-->
+
 	<script>
 		var scr = {"scripts":[
+			{"src" : "libs/core.js/client/core.min.js", "async" : false},
 			{"src" : "js/project.min.js", "async" : false}
 		]};
 	</script>
