@@ -1,0 +1,4 @@
+User-Agent: *
+# Host: domain.com 
+Disallow: /cgi-bin
+Disallow: /admin
