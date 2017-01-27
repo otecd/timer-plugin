@@ -1,0 +1,41 @@
+{
+  "name": "timer-plugin",
+  "version": "1.0.0",
+  "authors": [
+    "<idimzz@gmail.com> (https://github.com/papadima)"
+  ],
+  "description": "Timer or countdown plugin with IE8+ compatibility",
+  "main": [
+    "src/index.html"
+  ],
+  "keywords": [
+    "html"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/papadima/timer-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:papadima/timer-plugin.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "old_kit_version",
+    "src",
+    "bower.json",
+    "gulpfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "private": false,
+  "dependencies": {
+    "es5-shim": "^4.5.9",
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2",
+    "pie-htc": "^1.0.0",
+    "ExplorerCanvas": "excanvas#*"
+  }
+}

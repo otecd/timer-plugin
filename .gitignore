@@ -1,5 +1,5 @@
 
-libs/
-**/*.DS_Store
-
-robots.txt
+src/libs/*
+bld/
+node_modules/
+.DS_Store
