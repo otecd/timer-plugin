@@ -1,6 +1,4 @@
-;(function (G){
-
-function TimerSCounter(obj) {
+function TimerCounter(obj) {
 
     let name = name || obj.name,
         elem = elem || obj.elem,
@@ -42,7 +40,7 @@ function TimerSCounter(obj) {
             }
         };
 
-    if (typeof name !== 'string' || typeof elem.innerHTML !== 'string') throw new Error('TimerSCounter() - Incorrect arguments.');
+    if (typeof name !== 'string' || typeof elem.innerHTML !== 'string') throw new Error('TimerCounter() - Incorrect arguments.');
 
     this._name = function () {
         if (arguments.length === 0) return name;
@@ -63,7 +61,7 @@ function TimerSCounter(obj) {
         return elem.innerHTML;
     }
 
-    TimerSCounter._list = function () {
+    TimerCounter._list = function () {
         if (arguments.length === 0) return list;
         else throw new Error('Incorrect argument count.');
     }
@@ -71,14 +69,14 @@ function TimerSCounter(obj) {
 }
 
 
-// class TimerS {
+// class Timer {
 //
 //     constructor(elemSelector, shedule) {
 //
-//         this.elem = document.querySelector('.timers' + elemSelector);
+//         this.elem = document.querySelector('.timer' + elemSelector);
 //
-//         function isTimerSCounter(value) {
-//             return value.indexOf('timers-counter-') >= 0
+//         function isTimerCounter(value) {
+//             return value.indexOf('timer-counter-') >= 0
 //         }
 //
 //         try {
@@ -96,16 +94,16 @@ function TimerSCounter(obj) {
 //                 throw 'Error! Your shedule Dates is incorrect. Please, check it.';
 //             }
 //
-//             let timerSChildrenN = this.elem.children.length,
+//             let TimerChildrenN = this.elem.children.length,
 //                 i = 0, j = 0, classList, counterName;
 //
 //             this.counters = [];
 //
-//             while (i < timerSChildrenN) {
+//             while (i < TimerChildrenN) {
 //                 classList = this.elem.children[i].className.split(' '),
-//                 counterName = classList.filter(isTimerSCounter)[0].split('-')[2];
-//                 if (counterName in TimerSCounters.list) {
-//                     this.counters[j] = new TimerSCounters(counterName, this.elem.children[i], 0);
+//                 counterName = classList.filter(isTimerCounter)[0].split('-')[2];
+//                 if (counterName in TimerCounters.list) {
+//                     this.counters[j] = new TimerCounters(counterName, this.elem.children[i], 0);
 //                 }
 //                 i++;
 //                 j++;
@@ -134,10 +132,10 @@ function TimerSCounter(obj) {
 //     }
 //
 //     get interval() {
-//         let k, r = TimerSCounters.list[this.counters[0].name].interval;
+//         let k, r = TimerCounters.list[this.counters[0].name].interval;
 //         for (k = 1; k < this.counters.length; k++) {
-//             if (TimerSCounters.list[this.counters[k].name].interval < r) {
-//                 r = TimerSCounters.list[this.counters[k].name].interval;
+//             if (TimerCounters.list[this.counters[k].name].interval < r) {
+//                 r = TimerCounters.list[this.counters[k].name].interval;
 //             }
 //         }
 //         return r;
@@ -147,9 +145,9 @@ function TimerSCounter(obj) {
 //         if (Object.keys(t).length) {
 //             let stopwatch = setInterval(function() {
 //                 for (let k = 0; k < t.counters.length; k++) {
-//                     t.counters[k].value = ('0' + Math.floor((t.remainingTime / TimerSCounters.list[t.counters[k].name].interval) % TimerSCounters.list[t.counters[k].name].divisor)).slice(-2);
-//                     if (k === 0) t.counters[k].value = Math.floor(t.remainingTime / TimerSCounters.list[t.counters[k].name].interval);
-//                     if (t.counters[k].name === 'milliseconds') t.counters[k].value = Math.floor((t.remainingTime / TimerSCounters.list[t.counters[k].name].interval) % TimerSCounters.list[t.counters[k].name].divisor);
+//                     t.counters[k].value = ('0' + Math.floor((t.remainingTime / TimerCounters.list[t.counters[k].name].interval) % TimerCounters.list[t.counters[k].name].divisor)).slice(-2);
+//                     if (k === 0) t.counters[k].value = Math.floor(t.remainingTime / TimerCounters.list[t.counters[k].name].interval);
+//                     if (t.counters[k].name === 'milliseconds') t.counters[k].value = Math.floor((t.remainingTime / TimerCounters.list[t.counters[k].name].interval) % TimerCounters.list[t.counters[k].name].divisor);
 //                 }
 //                 if (t.remainingTime < t.interval) {
 //                     clearInterval(stopwatch);
@@ -160,14 +158,13 @@ function TimerSCounter(obj) {
 //
 // }
 //
-// let timersDefault = new TimerS('.timers-default', [new Date(), new Date(2017, 0, 1, 0, 0, 0, 0)]);
-// TimerS.start(timersDefault);
+// let TimerDefault = new Timer('.Timer-default', [new Date(), new Date(2017, 0, 1, 0, 0, 0, 0)]);
+// Timer.start(TimerDefault);
 //
 // // переделать входные параметры класса на объект
 
-}(this));
 
-let t = new TimerSCounter({
+let t = new TimerCounter({
     name: 'ttt',
-    elem: document.querySelector('.timers-counter-days')
+    elem: document.querySelector('.timer-counter-days')
 });

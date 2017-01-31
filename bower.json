@@ -1,15 +1,16 @@
 {
   "name": "timer-plugin",
-  "version": "1.0.0",
   "authors": [
     "<idimzz@gmail.com> (https://github.com/papadima)"
   ],
   "description": "Timer or countdown plugin with IE8+ compatibility",
   "main": [
-    "src/index.html"
+    "bld/js/timer.js"
   ],
   "keywords": [
-    "html"
+    "js",
+    "timer",
+    "countdown"
   ],
   "license": "MIT",
   "homepage": "https://github.com/papadima/timer-plugin",
@@ -34,6 +35,9 @@
   "dependencies": {
     "es5-shim": "^4.5.9",
     "html5shiv": "^3.7.3",
+    "utility.js": "^0.1.0"
+  },
+  "devDependencies": {
     "respond": "^1.4.2",
     "ExplorerCanvas": "excanvas#*"
   }

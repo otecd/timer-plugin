@@ -1,8 +1,8 @@
 'use strict';
 
 var gulp = require('gulp'),
+    concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    rename = require('gulp-rename'),
     newer = require('gulp-newer'),
     del = require('del'),
     babel = require('gulp-babel'),
@@ -64,10 +64,15 @@ function buildHtml() {
 }
 
 function buildJs() {
+    var nm = 'timer'; // change it to your project's name
+    gulp.src(path.source.js)
+        .pipe(babel())
+        .pipe(concat(nm+'.js'))
+        .pipe(gulp.dest(path.build.js))
     return gulp.src(path.source.js)
         .pipe(babel())
         .pipe(uglify())
-        .pipe(rename({suffix: '.min', prefix : ''}))
+        .pipe(concat(nm+'.min.js'))
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
 }
