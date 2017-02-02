@@ -1,73 +1,111 @@
 function TimerCounter(obj) {
-
-    let name = name || obj.name,
-        elem = elem || obj.elem,
-        list = {
-            years: {
-                interval: 1000*60*60*24*365,
-                divisor: 1,
-                unitEndings: ['год','года','лет']
-            },
-            months: {
-                interval: 1000*60*60*24*365/12,
-                divisor: 12,
-                unitEndings: ['месяц','месяца','месяцев']
-            },
-            days: {
-                interval: 1000*60*60*24,
-                divisor: 365/12,
-                unitEndings: ['день','дня','дней']
-            },
-            hours: {
-                interval: 1000*60*60,
-                divisor: 24,
-                unitEndings: ['час','часа','часов']
-            },
-            minutes: {
-                interval: 1000*60,
-                divisor: 60,
-                unitEndings: ['минута','минуты','минут']
-            },
-            seconds: {
-                interval: 1000,
-                divisor: 60,
-                unitEndings: ['секунда','секунды','секунд']
-            },
-            milliseconds: {
+    /*
+    obj = {
+        timerEl:
+        type:
+    }
+    */
+    let types = [
+            { //milliseconds
                 interval: 100,
                 divisor: 10,
-                unitEndings: ['миллисекунда','миллисекунды','миллисекунд']
+                unitEndings: ['миллисекунд','миллисекунда','миллисекунды']
+            },
+            { //seconds
+                interval: 1000,
+                divisor: 60,
+                unitEndings: ['секунд','секунда','секунды']
+            },
+            { //minutes
+                interval: 1000*60,
+                divisor: 60,
+                unitEndings: ['минут','минута','минуты']
+            },
+            { //hours
+                interval: 1000*60*60,
+                divisor: 24,
+                unitEndings: ['часов','час','часа']
+            },
+            { //days
+                interval: 1000*60*60*24,
+                divisor: 365/12,
+                unitEndings: ['дней','день','дня']
+            },
+            { //months
+                interval: 1000*60*60*24*365/12,
+                divisor: 12,
+                unitEndings: ['месяцев','месяц','месяца']
+            },
+            { //years
+                interval: 1000*60*60*24*365,
+                divisor: 1,
+                unitEndings: ['лет','год','года']
             }
-        };
+        ];
 
     if (typeof name !== 'string' || typeof elem.innerHTML !== 'string') throw new Error('TimerCounter() - Incorrect arguments.');
 
     this._name = function () {
         if (arguments.length === 0) return name;
-        else throw new Error('Incorrect argument count.');
+        else throw new Error('Incorrect argument amount.');
     }
 
     this._elem = function () {
         if (arguments.length === 0) return elem;
-        else throw new Error('Incorrect argument count.');
+        else throw new Error('Incorrect argument amount.');
     }
 
     this._value = function () {
         switch(arguments.length) {
             case 1: elem.innerHTML = arguments[0];
             case 0: break;
-            default: throw new Error('Incorrect argument count. Expected 0 or 1 arguments.');
+            default: throw new Error('Incorrect argument amount. Expected 0 or 1 arguments.');
         }
         return elem.innerHTML;
     }
 
-    TimerCounter._list = function () {
-        if (arguments.length === 0) return list;
-        else throw new Error('Incorrect argument count.');
+    TimerCounter.types = function () {
+        if (arguments.length === 0) return types;
+        else if (arguments.length === 1) {
+            if (typeof types[arguments[0]] === 'undefined') throw new Error('Incorrect argument. Expected number 0 to '+(types.length-1));
+            else return types[arguments[0]];
+        }
+        else throw new Error('Incorrect arguments amount. Expected 0 or 1 arguments.');
     }
 
-}
+};
 
+function Timer(obj) {
+    let t = {};
+    obj = obj || {};
+    t.counters = [];
+    function parseType(str) {
+        let arr = str.split(''), i, tn = 0;
+        i = arr.length-1;
+        while (i >= 0) {
+            if (arr[i] === '1') t.counters.push({timerEl: t.el, type: tn});
+            else if (arr[i] !== '0') return false;
+            i--;
+            tn++;
+        }
+        return true;
+    }
+    try {
+        if ((typeof obj.el === 'undefined') || (obj.el === null)) throw 'Error! Timer element incorrect';
+        else if (UTIL.classList(obj.el).indexOf('timer') === -1) throw 'Error! Timer element must have a \'timer\' class';
+        else t.el = obj.el;
+        if (typeof obj.type !== 'undefined') {
+            if ((typeof obj.type !== 'string') || !(parseType(obj.type))) throw 'Error! Timer type incorrect';
+        } else parseType('110');
+        if (typeof obj.showUnits !== 'undefined') {
+            if (typeof obj.showUnits !== 'boolean') throw 'Error! Timer showUnits param incorrect';
+        } else obj.showUnits = false;
+        t.showUnits = obj.showUnits;
+    } catch (e) {
+        console.warn(e);
+        return Object.create(null);
+    }
+};
 
 // class Timer {
 //
@@ -164,7 +202,15 @@ function TimerCounter(obj) {
 // // переделать входные параметры класса на объект
 
 
-let t = new TimerCounter({
-    name: 'ttt',
-    elem: document.querySelector('.timer-counter-days')
-});
+// let t = new TimerCounter({
+//     name: 'ttt',
+//     elem: document.querySelector('.timer-counter-days')
+// });
+
+window.onload = function () {
+    let ti = new Timer({
+        el: document.querySelector('.timer1'),
+        type: '010',
+        showUnits: true
+    });
+}
