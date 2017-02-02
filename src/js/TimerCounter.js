@@ -51,6 +51,9 @@ function TimerCounter(obj) {
                 unitEndings: ['лет','год','года']
             }
         ];
+    function hidden(b) {
+        (b) ? UTIL.classList(tc.el).add('tmr-c-hidden') : UTIL.classList(tc.el).remove('tmr-c-hidden');
+    }
     tc = {
         value: 0,
         name: types[obj.type].name,
@@ -74,9 +77,12 @@ function TimerCounter(obj) {
         span.insertBefore(spanUnit, spanValue);
     }
     tc.el = obj.timerEl.appendChild(span);
+    hidden(true);
     this.el = tc.el;
     this.value = tc.value;
     this.name = tc.name;
+    this.hide = () => hidden(true);
+    this.show = () => hidden(false);
     this.setValue = function () {
         switch(arguments.length) {
             case 1: tc.value = +arguments[0];
