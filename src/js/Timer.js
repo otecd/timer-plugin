@@ -1,6 +1,6 @@
 ;
 function Timer(obj) {
-    let t = {}, i = 0;
+    let t = {}, i;
     obj = obj || {};
     t.counters = [];
     function parseType(str) {
@@ -29,11 +29,12 @@ function Timer(obj) {
         console.warn(e);
         return Object.create(null);
     }
-    while (i < t.counters.length) {
+    i = t.counters.length-1;
+    while (i >= 0) {
         t.counters[i].timerEl = t.el;
-        t.counters[i].showUnit = t.showUnits;
+        t.counters[i].showUnit = ((i === t.counters.length-1) && (t.showUnits === false)) ? null : t.showUnits;
         t.counters[i] = new TimerCounter(t.counters[i]);
-        i++;
+        i--;
     }
     console.log(t.counters);
 }

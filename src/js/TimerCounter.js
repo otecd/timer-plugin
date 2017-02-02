@@ -64,7 +64,7 @@ function TimerCounter(obj) {
     if (obj.showUnit) {
         spanUnit.innerHTML = ' ' + UTIL.unitEndings(tc.value, types[obj.type].unitEndings) + ' ';
         span.appendChild(spanUnit);
-    } else {
+    } else if (obj.showUnit === false) {
         spanUnit.innerHTML = ' : ';
         span.insertBefore(spanUnit, spanValue);
     }
