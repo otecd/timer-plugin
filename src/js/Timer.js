@@ -15,16 +15,21 @@ function Timer(obj) {
         return true;
     }
     try {
-        if ((typeof obj.el === 'undefined') || (obj.el === null)) throw 'Error! Timer element incorrect';
+        if ((typeof obj.el === 'undefined') || (obj.el === null)) throw 'Error! Timer element is incorrect';
         else if (UTIL.classList(obj.el).indexOf('tmr') === -1) throw 'Error! Timer element must have a \'timer\' class';
         else t.el = obj.el;
         if (typeof obj.type !== 'undefined') {
-            if ((typeof obj.type !== 'string') || !(parseType(obj.type))) throw 'Error! Timer type incorrect';
+            if ((typeof obj.type !== 'string') || !(parseType(obj.type))) throw 'Error! Timer type is incorrect';
         } else parseType('110');
         if (typeof obj.showUnits !== 'undefined') {
-            if (typeof obj.showUnits !== 'boolean') throw 'Error! Timer showUnits param incorrect';
+            if (typeof obj.showUnits !== 'boolean') throw 'Error! Timer showUnits param is incorrect';
         } else obj.showUnits = false;
         t.showUnits = obj.showUnits;
+        if ((Date.parse(t.startDate = obj.shedule[0])).isNaN || (Date.parse(t.endDate = obj.shedule[1])).isNaN) {
+            throw 'Error! Your shedule Dates is incorrect. Please, check it.';
+        } else if ((Date.parse(t.endDate) - Date.parse(t.startDate) <= 0) || (Date.parse(t.endDate) - Date.now() <= 0)) {
+            throw 'Error! Your shedule Dates is incorrect. Please, check it.';
+        }
     } catch (e) {
         console.warn(e);
         return Object.create(null);
@@ -36,6 +41,9 @@ function Timer(obj) {
         t.counters[i] = new TimerCounter(t.counters[i]);
         i--;
     }
+    this.el = t.el;
+    this.startDate = t.startDate;
+    this.endDate = t.endDate;
 }
 
 // class Timer {
