@@ -36,7 +36,6 @@ function Timer(obj) {
         t.counters[i] = new TimerCounter(t.counters[i]);
         i--;
     }
-    console.log(t.counters);
 }
 
 // class Timer {

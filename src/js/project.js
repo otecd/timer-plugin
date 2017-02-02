@@ -2,16 +2,16 @@
 // Timer.start(TimerDefault);
 //
 // // переделать входные параметры класса на объект
-
+let ti1, ti2;
 window.onload = function () {
-    let ti = new Timer({
+    ti1 = new Timer({
         el: document.querySelector('.timer1'),
-        type: '110',
+        type: '111',
         showUnits: true
     });
-    let ti2 = new Timer({
+    ti2 = new Timer({
         el: document.querySelector('.timer2'),
-        type: '110',
+        type: '111',
         showUnits: false
     });
 }
