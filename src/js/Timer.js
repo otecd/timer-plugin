@@ -16,7 +16,7 @@ function Timer(obj) {
     }
     try {
         if ((typeof obj.el === 'undefined') || (obj.el === null)) throw 'Error! Timer element incorrect';
-        else if (UTIL.classList(obj.el).indexOf('timer') === -1) throw 'Error! Timer element must have a \'timer\' class';
+        else if (UTIL.classList(obj.el).indexOf('tmr') === -1) throw 'Error! Timer element must have a \'timer\' class';
         else t.el = obj.el;
         if (typeof obj.type !== 'undefined') {
             if ((typeof obj.type !== 'string') || !(parseType(obj.type))) throw 'Error! Timer type incorrect';

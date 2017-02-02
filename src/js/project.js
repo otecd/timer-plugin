@@ -9,4 +9,9 @@ window.onload = function () {
         type: '110',
         showUnits: true
     });
+    let ti2 = new Timer({
+        el: document.querySelector('.timer2'),
+        type: '110',
+        showUnits: false
+    });
 }
