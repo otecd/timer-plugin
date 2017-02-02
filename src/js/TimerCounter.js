@@ -5,7 +5,7 @@ function TimerCounter(obj) {
         type:
         showUnit:
     }*/
-    let tc = {value: 0},
+    let tc,
         span, spanValue, spanUnit,
         types = [
             {
@@ -51,10 +51,15 @@ function TimerCounter(obj) {
                 unitEndings: ['лет','год','года']
             }
         ];
-
-
+    tc = {
+        value: 0,
+        name: types[obj.type].name,
+        interval: types[obj.type].interval,
+        divisor: types[obj.type].divisor,
+        unitEndings: types[obj.type].unitEndings
+    };
     span = document.createElement('span');
-    span.className = 'tmr-c tmr-c-' + types[obj.type].name;
+    span.className = 'tmr-c tmr-c-' + tc.name;
     spanValue = document.createElement('span');
     spanValue.className = 'tmr-c-v';
     spanValue.innerHTML = tc.value;
@@ -62,33 +67,29 @@ function TimerCounter(obj) {
     spanUnit = document.createElement('span');
     spanUnit.className = 'tmr-c-u';
     if (obj.showUnit) {
-        spanUnit.innerHTML = ' ' + UTIL.unitEndings(tc.value, types[obj.type].unitEndings) + ' ';
+        spanUnit.innerHTML = ' ' + UTIL.unitEndings(tc.value, tc.unitEndings) + ' ';
         span.appendChild(spanUnit);
     } else if (obj.showUnit === false) {
-        spanUnit.innerHTML = ' : ';
+        spanUnit.innerHTML = (obj.type === 0) ? ' . ' : ' : ';
         span.insertBefore(spanUnit, spanValue);
     }
-    tc.elValue = obj.timerEl.appendChild(span);
-
-    this._name = function () {
-        if (arguments.length === 0) return name;
-        else throw new Error('Incorrect argument amount.');
-    }
-
-    this._elem = function () {
-        if (arguments.length === 0) return elem;
-        else throw new Error('Incorrect argument amount.');
-    }
-
-    this._value = function () {
+    tc.el = obj.timerEl.appendChild(span);
+    this.el = tc.el;
+    this.value = tc.value;
+    this.name = tc.name;
+    this.setValue = function () {
         switch(arguments.length) {
-            case 1: elem.innerHTML = arguments[0];
+            case 1: tc.value = +arguments[0];
             case 0: break;
             default: throw new Error('Incorrect argument amount. Expected 0 or 1 arguments.');
         }
-        return elem.innerHTML;
+        tc.el.querySelector('.tmr-c-v').innerHTML = tc.value;
+        if (obj.showUnit) {
+            tc.el.querySelector('.tmr-c-u').innerHTML = ' ' + UTIL.unitEndings(tc.value, tc.unitEndings) + ' ';
+        } else if (obj.showUnit === false) {
+            tc.el.querySelector('.tmr-c-u').innerHTML = (obj.type === 0) ? ' . ' : ' : ';
+        }
     }
-
     TimerCounter.types = function () {
         if (arguments.length === 0) return types;
         else if (arguments.length === 1) {
@@ -97,6 +98,5 @@ function TimerCounter(obj) {
         }
         else throw new Error('Incorrect arguments amount. Expected 0 or 1 arguments.');
     }
-
 }
 ;
