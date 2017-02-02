@@ -6,7 +6,7 @@
 window.onload = function () {
     let ti = new Timer({
         el: document.querySelector('.timer1'),
-        type: '010',
+        type: '110',
         showUnits: true
     });
 }

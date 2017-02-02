@@ -5,7 +5,9 @@ function TimerCounter(obj) {
         type:
         showUnit:
     }*/
-    let types = [
+    let tc = {value: 0},
+        span, spanValue, spanUnit,
+        types = [
             {
                 name: 'milliseconds',
                 interval: 100,
@@ -50,6 +52,23 @@ function TimerCounter(obj) {
             }
         ];
 
+
+    span = document.createElement('span');
+    span.className = 'tmr-c tmr-c-' + types[obj.type].name;
+    spanValue = document.createElement('span');
+    spanValue.className = 'tmr-c-v';
+    spanValue.innerHTML = tc.value;
+    span.appendChild(spanValue);
+    spanUnit = document.createElement('span');
+    spanUnit.className = 'tmr-c-u';
+    if (obj.showUnit) {
+        spanUnit.innerHTML = ' ' + UTIL.unitEndings(tc.value, types[obj.type].unitEndings) + ' ';
+        span.appendChild(spanUnit);
+    } else {
+        spanUnit.innerHTML = ' : ';
+        span.insertBefore(spanUnit, spanValue);
+    }
+    tc.elValue = obj.timerEl.appendChild(span);
 
     this._name = function () {
         if (arguments.length === 0) return name;
