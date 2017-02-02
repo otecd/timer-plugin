@@ -67,10 +67,10 @@ function TimerCounter(obj) {
     spanUnit = document.createElement('span');
     spanUnit.className = 'tmr-c-u';
     if (obj.showUnit) {
-        spanUnit.innerHTML = ' ' + UTIL.unitEndings(tc.value, tc.unitEndings) + ' ';
+        spanUnit.innerHTML = UTIL.unitEndings(tc.value, tc.unitEndings);
         span.appendChild(spanUnit);
     } else if (obj.showUnit === false) {
-        spanUnit.innerHTML = (obj.type === 0) ? ' . ' : ' : ';
+        spanUnit.innerHTML = (obj.type === 0) ? '.' : ':';
         span.insertBefore(spanUnit, spanValue);
     }
     tc.el = obj.timerEl.appendChild(span);
@@ -85,9 +85,9 @@ function TimerCounter(obj) {
         }
         tc.el.querySelector('.tmr-c-v').innerHTML = tc.value;
         if (obj.showUnit) {
-            tc.el.querySelector('.tmr-c-u').innerHTML = ' ' + UTIL.unitEndings(tc.value, tc.unitEndings) + ' ';
+            tc.el.querySelector('.tmr-c-u').innerHTML = UTIL.unitEndings(tc.value, tc.unitEndings);
         } else if (obj.showUnit === false) {
-            tc.el.querySelector('.tmr-c-u').innerHTML = (obj.type === 0) ? ' . ' : ' : ';
+            tc.el.querySelector('.tmr-c-u').innerHTML = (obj.type === 0) ? '.' : ':';
         }
     }
     TimerCounter.types = function () {
