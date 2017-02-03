@@ -56,6 +56,7 @@ function TimerCounter(obj) {
     }
     tc = {
         value: 0,
+        type: obj.type,
         name: types[obj.type].name,
         interval: types[obj.type].interval,
         divisor: types[obj.type].divisor,
@@ -79,18 +80,18 @@ function TimerCounter(obj) {
     tc.el = obj.timerEl.appendChild(span);
     hidden(true);
     this.el = tc.el;
+    this.type = tc.type;
     this.value = tc.value;
     this.name = tc.name;
     this.interval = tc.interval;
+    this.divisor = tc.divisor;
     this.hide = () => hidden(true);
     this.show = () => hidden(false);
-    this.setValue = function () {
-        switch(arguments.length) {
-            case 1: tc.value = +arguments[0];
-            case 0: break;
-            default: throw new Error('Incorrect argument amount. Expected 0 or 1 arguments.');
-        }
-        tc.el.querySelector('.tmr-c-v').innerHTML = tc.value;
+    this.setValue = function(v, withZero) {
+        tc.value = v;
+        console.log(v);
+        if (withZero) tc.el.querySelector('.tmr-c-v').innerHTML = ('0' + tc.value).slice(-2);
+        else tc.el.querySelector('.tmr-c-v').innerHTML = tc.value;
         if (obj.showUnit) {
             tc.el.querySelector('.tmr-c-u').innerHTML = UTIL.unitEndings(tc.value, tc.unitEndings);
         } else if (obj.showUnit === false) {

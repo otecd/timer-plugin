@@ -1,6 +1,6 @@
 ;
 function Timer(obj) {
-    let t = {}, i, imgElBef, imgElAft;
+    let t = {}, i, imgElBef, imgElAft, stopwatch;
     obj = obj || {};
     t.counters = [];
     function parseType(str) {
@@ -21,12 +21,24 @@ function Timer(obj) {
         return imgEl;
     }
     function start() {
+        let i;
         t.el.removeChild(t.elPic);
-        let i = t.counters.length-1;
+        i = t.counters.length-1;
         while (i >= 0) {
             t.counters[i].show();
             i--;
         }
+        stopwatch = setInterval(function() {
+            let i, remainingTime = t.endDate - Date.now();
+            for (i = 0; i < t.counters.length; i++) {
+                t.counters[i].setValue(Math.floor((remainingTime / t.counters[i].interval) % t.counters[i].divisor), true);
+                if (i === t.counters.length - 1) t.counters[i].setValue(Math.floor(remainingTime / t.counters[i].interval), false);
+                if (t.counters[i].type === 0) t.counters[i].setValue(Math.floor((remainingTime / t.counters[i].interval) % t.counters[i].divisor), false);
+            }
+            if (remainingTime < t.interval) {
+                clearInterval(stopwatch);
+            }
+        }, t.interval);
     }
     try {
         if ((typeof obj.el === 'undefined') || (obj.el === null)) throw 'Error! Timer element is incorrect';
@@ -59,7 +71,6 @@ function Timer(obj) {
         i--;
     }
     t.interval = t.counters[0].interval;
-    t.remainingTime = t.endDate - Date.now();
     this.el = t.el;
     this.startDate = t.startDate;
     this.endDate = t.endDate;
@@ -67,93 +78,4 @@ function Timer(obj) {
     i = (i < 0) ? 0 : i;
     setTimeout(start, i);
 }
-
-// class Timer {
-//
-//     constructor(elemSelector, shedule) {
-//
-//         this.elem = document.querySelector('.timer' + elemSelector);
-//
-//         function isTimerCounter(value) {
-//             return value.indexOf('timer-counter-') >= 0
-//         }
-//
-//         try {
-//
-//             if ((this.elem === null) || (this.elem.className.indexOf('timer') < 0)) {
-//                 throw 'Error! Your element selector is incorrect. Please, check it.';
-//             }
-//
-//             this.elem.hidden = true;
-//             // сделать заглушку вместо пустого места
-//
-//             if (Number.isNaN(Date.parse(this.startDate = shedule[0])) || Number.isNaN(Date.parse(this.endDate = shedule[1]))) {
-//                 throw 'Error! Your shedule Dates is incorrect. Please, check it.';
-//             } else if ((Date.parse(this.endDate) - Date.parse(this.startDate) <= 0) || (Date.parse(this.endDate) - Date.now() <= 0)) {
-//                 throw 'Error! Your shedule Dates is incorrect. Please, check it.';
-//             }
-//
-//             let TimerChildrenN = this.elem.children.length,
-//                 i = 0, j = 0, classList, counterName;
-//
-//             this.counters = [];
-//
-//             while (i < TimerChildrenN) {
-//                 classList = this.elem.children[i].className.split(' '),
-//                 counterName = classList.filter(isTimerCounter)[0].split('-')[2];
-//                 if (counterName in TimerCounters.list) {
-//                     this.counters[j] = new TimerCounters(counterName, this.elem.children[i], 0);
-//                 }
-//                 i++;
-//                 j++;
-//             }
-//
-//             if (this.counters.length > 0) this.elem.hidden = false
-//             else {
-//                 throw 'Error! Your counter element selector is incorrect. Please, check it.'
-//             }
-//
-//         } catch (e) {
-//
-//             console.warn(e);
-//             return Object.create(null);
-//
-//         } finally {
-//
-//         }
-//
-//         // сделать заглушку (событие закончилось, таймер на 00:00) если вышел дедлайн
-//
-//     }
-//
-//     get remainingTime() {
-//         return Date.parse(this.endDate) - Date.now();
-//     }
-//
-//     get interval() {
-//         let k, r = TimerCounters.list[this.counters[0].name].interval;
-//         for (k = 1; k < this.counters.length; k++) {
-//             if (TimerCounters.list[this.counters[k].name].interval < r) {
-//                 r = TimerCounters.list[this.counters[k].name].interval;
-//             }
-//         }
-//         return r;
-//     }
-//
-//     static start(t) {
-//         if (Object.keys(t).length) {
-//             let stopwatch = setInterval(function() {
-//                 for (let k = 0; k < t.counters.length; k++) {
-//                     t.counters[k].value = ('0' + Math.floor((t.remainingTime / TimerCounters.list[t.counters[k].name].interval) % TimerCounters.list[t.counters[k].name].divisor)).slice(-2);
-//                     if (k === 0) t.counters[k].value = Math.floor(t.remainingTime / TimerCounters.list[t.counters[k].name].interval);
-//                     if (t.counters[k].name === 'milliseconds') t.counters[k].value = Math.floor((t.remainingTime / TimerCounters.list[t.counters[k].name].interval) % TimerCounters.list[t.counters[k].name].divisor);
-//                 }
-//                 if (t.remainingTime < t.interval) {
-//                     clearInterval(stopwatch);
-//                 }
-//             }, t.interval);
-//         }
-//     }
-//
-// }
 ;
