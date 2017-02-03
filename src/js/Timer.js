@@ -61,7 +61,9 @@ function Timer(obj) {
     this.el = t.el;
     this.startDate = t.startDate;
     this.endDate = t.endDate;
-    setTimeout(start, t.startDate - Date.now());
+    i = t.startDate - Date.now();
+    i = (i < 0) ? 0 : i;
+    setTimeout(start, i);
 }
 
 // class Timer {
