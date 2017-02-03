@@ -37,8 +37,18 @@ function Timer(obj) {
             }
             if (remainingTime < t.interval) {
                 clearInterval(stopwatch);
+                finish();
             }
         }, t.interval);
+    }
+    function finish() {
+        let i;
+        t.elPic = t.el.appendChild(imgElAft);
+        i = t.counters.length-1;
+        while (i >= 0) {
+            t.counters[i].hide();
+            i--;
+        }
     }
     try {
         if ((typeof obj.el === 'undefined') || (obj.el === null)) throw 'Error! Timer element is incorrect';
