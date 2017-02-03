@@ -20,6 +20,14 @@ function Timer(obj) {
         imgEl.src = src;
         return imgEl;
     }
+    function start() {
+        t.el.removeChild(t.elPic);
+        i = t.counters.length-1;
+        while (i >= 0) {
+            t.counters[i].show();
+            i--;
+        }
+    }
     try {
         if ((typeof obj.el === 'undefined') || (obj.el === null)) throw 'Error! Timer element is incorrect';
         else if (UTIL.classList(obj.el).indexOf('tmr') === -1) throw 'Error! Timer element must have a \'timer\' class';
@@ -31,9 +39,9 @@ function Timer(obj) {
             if (typeof obj.showUnits !== 'boolean') throw 'Error! Timer showUnits param is incorrect';
         } else obj.showUnits = false;
         t.showUnits = obj.showUnits;
-        if ((Date.parse(t.startDate = obj.shedule[0])).isNaN || (Date.parse(t.endDate = obj.shedule[1])).isNaN) {
+        if ((t.startDate = obj.shedule[0]).isNaN || (t.endDate = obj.shedule[1]).isNaN) {
             throw 'Error! Your shedule Dates is incorrect. Please, check it.';
-        } else if ((Date.parse(t.endDate) - Date.parse(t.startDate) <= 0) || (Date.parse(t.endDate) - Date.now() <= 0)) {
+        } else if ((t.endDate - t.startDate <= 0) || (t.endDate - Date.now() <= 0)) {
             throw 'Error! Your shedule Dates is incorrect. Please, check it.';
         }
     } catch (e) {
@@ -53,6 +61,7 @@ function Timer(obj) {
     this.el = t.el;
     this.startDate = t.startDate;
     this.endDate = t.endDate;
+    setTimeout(start, t.startDate - Date.now());
 }
 
 // class Timer {

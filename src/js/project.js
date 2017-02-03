@@ -8,12 +8,12 @@ window.onload = function () {
         el: document.querySelector('.timer1'),
         type: '111',
         showUnits: true,
-        shedule: [new Date(), new Date(2018, 0, 1, 0, 0, 0, 0)]
+        shedule: [Date.now()+3000, Date.now()+6000]
     });
     ti2 = new Timer({
         el: document.querySelector('.timer2'),
         type: '111',
         showUnits: false,
-        shedule: [new Date(), new Date(2018, 0, 1, 0, 0, 0, 0)]
+        shedule: [Date.now(), Date.parse(new Date(2018, 0, 1, 0, 0, 0, 0))]
     });
 }
