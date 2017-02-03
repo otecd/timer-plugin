@@ -89,7 +89,6 @@ function TimerCounter(obj) {
     this.show = () => hidden(false);
     this.setValue = function(v, withZero) {
         tc.value = v;
-        console.log(v);
         if (withZero) tc.el.querySelector('.tmr-c-v').innerHTML = ('0' + tc.value).slice(-2);
         else tc.el.querySelector('.tmr-c-v').innerHTML = tc.value;
         if (obj.showUnit) {
