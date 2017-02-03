@@ -81,6 +81,7 @@ function TimerCounter(obj) {
     this.el = tc.el;
     this.value = tc.value;
     this.name = tc.name;
+    this.interval = tc.interval;
     this.hide = () => hidden(true);
     this.show = () => hidden(false);
     this.setValue = function () {

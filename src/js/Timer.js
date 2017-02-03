@@ -22,7 +22,7 @@ function Timer(obj) {
     }
     function start() {
         t.el.removeChild(t.elPic);
-        i = t.counters.length-1;
+        let i = t.counters.length-1;
         while (i >= 0) {
             t.counters[i].show();
             i--;
@@ -58,6 +58,8 @@ function Timer(obj) {
         t.counters[i] = new TimerCounter(t.counters[i]);
         i--;
     }
+    t.interval = t.counters[0].interval;
+    t.remainingTime = t.endDate - Date.now();
     this.el = t.el;
     this.startDate = t.startDate;
     this.endDate = t.endDate;
