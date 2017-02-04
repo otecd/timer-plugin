@@ -1,10 +1,5 @@
 ;
 function TimerCounter(obj) {
-    /*obj = {
-        timerEl:
-        type:
-        showUnit:
-    }*/
     let tc,
         span, spanValue, spanUnit,
         types = [
