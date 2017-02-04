@@ -8,14 +8,14 @@
 
 В html файле:
 
-1. Подключить файл плагина `timer.min.js`, а также набор утилит (установится автоматически в bower) `utility.min.js`, если потребуется совместимость с IE8, то следует подключить дополнительно библиотеки `es5-shim` и `html5shiv`. В итоге должно быть так:
+1. Подключить файл плагина `timer.min.js`, а также набор утилит (установится автоматически в bower) `utility.min.js`, если потребуется совместимость с IE8, то следует подключить дополнительно библиотеки `es5-shim` и `html5shiv`. В итоге должно быть примерно так:
 ```html
 <script src="libs/es5-shim/es5-shim.min.js"></script>
 <script src="libs/es5-shim/es5-sham.min.js"></script>
 <script src="libs/html5shiv/dist/html5shiv.min.js"></script>
 <script src="libs/html5shiv/dist/html5shiv-printshiv.min.js"></script>
 <script src="libs/utility.js/bld/js/utility.min.js"></script>
-<script src="js/timer.min.js"></script>
+<script src="libs/timer.min.js"></script>
 ```
 
 2. В верстку вставьте в нужном месте следующий элемент
