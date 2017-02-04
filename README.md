@@ -6,9 +6,9 @@
 
 ## Как подключить
 
-В html файле:
 
-1. Подключить файл плагина `timer.min.js`, а также набор утилит (установится автоматически в bower) `utility.min.js`, если потребуется совместимость с IE8, то следует подключить дополнительно библиотеки `es5-shim` и `html5shiv`. В итоге должно быть примерно так:
+
+1. В html файле подключить файл плагина `timer.min.js`, а также набор утилит (установится автоматически в bower) `utility.min.js`, если потребуется совместимость с IE8, то следует подключить дополнительно библиотеки `es5-shim` и `html5shiv`. В итоге должно быть примерно так:
 ```html
 <script src="libs/es5-shim/es5-shim.min.js"></script>
 <script src="libs/es5-shim/es5-sham.min.js"></script>
@@ -42,5 +42,11 @@ window.onload = function () {
         elBefore: elB,
         elAfter: elA
     });
+}
+```
+4. В css файл добавьте следующее:
+```css
+.tmr-c-hidden {
+    display: none;
 }
 ```
