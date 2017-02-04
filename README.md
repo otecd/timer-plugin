@@ -15,7 +15,7 @@
 <script src="libs/html5shiv/dist/html5shiv.min.js"></script>
 <script src="libs/html5shiv/dist/html5shiv-printshiv.min.js"></script>
 <script src="libs/utility.js/bld/js/utility.min.js"></script>
-<script src="libs/timer.min.js"></script>
+<script src="libs/timer-plugin/bld/js/timer.min.js"></script>
 ```
 
 2. В верстку вставьте в нужном месте следующий элемент
